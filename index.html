@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revo Coffee — Твой идеальный кофе</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта (Шаг 2: Flexbox) -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="header__logo">
+                <img src="assets/img/LOGO.png" alt="Логотип Revo Coffee">
+            </a>
+            
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--active"><a href="#hero" class="nav__link">ГЛАВНАЯ</a></li>
+                    <li class="nav__item"><a href="#coffee" class="nav__link">КОФЕ</a></li>
+                    <li class="nav__item"><a href="#combo" class="nav__link">КОМБО-НАБОРЫ</a></li>
+                    <li class="nav__item"><a href="#giftset" class="nav__link">ПОДАРКИ</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">КОНТАКТЫ</a></li>
+                </ul>
+            </nav>
+
+            <button type="button" class="header__cart-button">
+                Корзина
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главный баннер -->
+        <section id="hero" class="hero">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">ТВОЙ <br> ИДЕАЛЬНЫЙ <br> КОФЕ</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества (Шаг 3: Grid) -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section__subtitle">Персонализированный подход</h2>
+                <h3 class="section__title">КАЧЕСТВЕННАЯ ОСНОВА</h3>
+
+                <ul class="features__list">
+                    <li class="feature-card">
+                        <h4 class="feature-card__title">Источник</h4>
+                        <p class="feature-card__text">Зерна Арабики и Робусты, соответствующие мировым стандартам качества.</p>
+                    </li>
+                    <li class="feature-card">
+                        <h4 class="feature-card__title">Качество</h4>
+                        <p class="feature-card__text">Каждое зерно — это результат кропотливого труда кофейных мастеров.</p>
+                    </li>
+                    <li class="feature-card">
+                        <h4 class="feature-card__title">Виды зерен</h4>
+                        <p class="feature-card__text">70% вкуса чашки зависит от происхождения и качества зеленого зерна.</p>
+                    </li>
+                    <li class="feature-card">
+                        <h4 class="feature-card__title">Обжарка</h4>
+                        <p class="feature-card__text">Зерна раскрывают свой потенциал благодаря строгим процессам обжарки.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Выбор вкуса (Шаг 3: Grid) -->
+        <section id="coffee" class="section">
+            <div class="container">
+                <h2 class="section__subtitle">Выберите свой вкус</h2>
+                <h3 class="section__title">ИСТИННЫЙ ВКУС</h3>
+                
+                <div class="product-grid">
+                    <article class="product-card">
+                        <p class="product-card__price">99.000</p>
+                        <h4 class="product-card__title">REVO Morning</h4>
+                        <p class="product-card__description">Горчинка, сладкое послевкусие, цветочные ноты</p>
+                    </article>
+                    <article class="product-card">
+                        <p class="product-card__price">139.000</p>
+                        <h4 class="product-card__title">REVO Origin</h4>
+                        <p class="product-card__description">Сладкое послевкусие, легкая горечь, кислинка</p>
+                    </article>
+                    <article class="product-card">
+                        <p class="product-card__price">85.000</p>
+                        <h4 class="product-card__title">REVO Everyday</h4>
+                        <p class="product-card__description">Сбалансированный вкус, шоколадные ноты</p>
+                    </article>
+                    <article class="product-card">
+                        <p class="product-card__price">75.000</p>
+                        <h4 class="product-card__title">REVO Насыщенный</h4>
+                        <p class="product-card__description">Густой, горький, традиционный вкус</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Шаг 4: Секция Блог (Masonry раскладка) -->
+        <section id="blog" class="section masonry-section">
+            <div class="container">
+                <h2 class="section__subtitle">Интересно о кофе</h2>
+                <h3 class="section__title">НАШ БЛОГ (Masonry)</h3>
+
+                <div class="masonry-grid">
+                    <article class="masonry-item masonry-item--short">
+                        <h4 class="masonry-item__title">История Арабики</h4>
+                        <p class="masonry-item__text">Краткий экскурс в происхождение сорта.</p>
+                    </article>
+                    <article class="masonry-item masonry-item--tall">
+                        <h4 class="masonry-item__title">Как заваривать в фине?</h4>
+                        <p class="masonry-item__text">Подробное руководство по использованию традиционного вьетнамского фина. Шаг за шагом мы разберем процесс заваривания, расскажем о температуре воды, пропорциях кофе и секретах идеальной чашки.</p>
+                    </article>
+                    <article class="masonry-item">
+                        <h4 class="masonry-item__title">Секреты обжарки</h4>
+                        <p class="masonry-item__text">Почему светлая обжарка кислит, а темная горчит? Разбираемся в деталях процессов, происходящих внутри зерна.</p>
+                    </article>
+                    <article class="masonry-item masonry-item--very-tall">
+                        <h4 class="masonry-item__title">Кофейные регионы Вьетнама</h4>
+                        <p class="masonry-item__text">Откройте для себя регионы Даклак, Ламдонг и Шонла. Узнайте, как климат и высота над уровнем моря влияют на вкус зерен, формируя уникальный профиль вьетнамского кофе, который славится своей крепостью и насыщенным шоколадным оттенком на весь мир.</p>
+                    </article>
+                    <article class="masonry-item masonry-item--short">
+                        <h4 class="masonry-item__title">Хранение зерен</h4>
+                        <p class="masonry-item__text">Храните кофе в сухом и темном месте.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__copyright">© Revo Coffee Việt Nam — 2024. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

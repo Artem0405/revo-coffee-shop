@@ -1,0 +1,262 @@
+/* ==============================
+   Базовые стили и переменные
+   ============================== */
+:root {
+    --bg-color: #ffffff;
+    --header-bg: #f5f5f5;
+    --text-color: #333333;
+    --primary-color: #c98a40; /* Кофейный цвет */
+    --card-bg: #fafafa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    /* Доп. задание: плавная смена цветов при изменении ширины экрана */
+    transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.section__subtitle {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.section__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* ==============================
+   ШАГ 2: Flexbox для меню
+   ============================== */
+.header {
+    background-color: var(--header-bg);
+    padding: 20px 0;
+    transition: background-color 0.5s ease;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Отступы между пунктами */
+    list-style: none;
+    transition: all 0.3s ease;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+    color: var(--primary-color);
+}
+
+.header__cart-button {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero {
+    background-color: #ececec;
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* ==============================
+   ШАГ 3: Grid-сетки
+   ============================== */
+/* Сетка для преимуществ */
+.features__list {
+    display: grid;
+    /* Автоматическое заполнение колонок */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    list-style: none;
+}
+
+.feature-card, .product-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    /* Доп. задание: плавные анимации карточек */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover, .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Сетка для товаров (кофе) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card__price {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ==============================
+   ШАГ 4: Masonry-раскладка
+   ============================== */
+.masonry-grid {
+    column-count: 3; /* По умолчанию 3 колонки */
+    column-gap: 24px;
+    transition: column-count 0.5s ease;
+}
+
+.masonry-item {
+    display: inline-block;
+    width: 100%; /* Важно для предотвращения разрыва блоков */
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease;
+}
+
+.masonry-item:hover {
+    transform: scale(1.02);
+}
+
+.masonry-item__title {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+
+/* ==============================
+   ШАГ 5: Медиазапросы (Desktop First)
+   ============================== */
+
+/* Ноутбуки и небольшие экраны (меньше 1200px) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* Планшеты (меньше 992px) */
+@media (max-width: 991px) {
+    :root {
+        /* Доп. задание: меняем цветовую схему при сужении экрана */
+        --header-bg: #e2dcd3; 
+        --card-bg: #ffffff;
+    }
+    
+    .container {
+        max-width: 720px;
+    }
+    
+    .masonry-grid {
+        column-count: 2; /* Уменьшаем кол-во колонок в Masonry */
+    }
+}
+
+/* Мобильные в альбомной ориентации (меньше 768px) */
+@media (max-width: 767px) {
+    :root {
+        /* Доп. задание: еще одно изменение цвета для мобильных */
+        --header-bg: #d4c5b3;
+    }
+
+    .container {
+        max-width: 540px;
+    }
+
+    /* Превращаем горизонтальное Flex-меню в вертикальное */
+    .header__container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav__link {
+        display: block;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Мобильные телефоны (меньше 576px) */
+@media (max-width: 575px) {
+    .masonry-grid {
+        column-count: 1; /* В одну колонку на маленьких экранах */
+    }
+
+    .section__title {
+        font-size: 1.5rem;
+    }
+
+    /* Принудительно делаем сетку товаров в 1 колонку */
+    .features__list, .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Очень маленькие экраны (меньше 400px) */
+@media (max-width: 399px) {
+    .hero__title {
+        font-size: 2rem; /* Уменьшаем шрифт главного заголовка */
+    }
+}
+
+/* Футер */
+.footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
